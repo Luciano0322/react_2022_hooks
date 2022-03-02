@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const NavbarWrapper = styled.nav`
   position: fixed;
   width: 100%;
-  height: 60px;
-  background: #ccc;
+  height: 3.5rem;
+  background: ${(props) => props.bgColor || '#ccc'};
   display: flex;
   align-items: center;
   justify-content: space-between;

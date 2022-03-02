@@ -16,7 +16,7 @@ const Navbar = (props) => {
   };
   return (
     <header>
-      <NavbarWrapper variant={props.variant}>
+      <NavbarWrapper variant={props.variant} bgColor={props.bgColor}>
         <OptionsWapper>{props.children}</OptionsWapper>
         <BurgerBtn onChange={burgerChange} checked={props.opened} />
       </NavbarWrapper>
@@ -24,6 +24,7 @@ const Navbar = (props) => {
   );
 };
 Navbar.propTypes = {
+  bgColor: PropTypes.string,
   variant: PropTypes.string, // left || right
   sidebarOpen: PropTypes.func,
   opened: PropTypes.bool

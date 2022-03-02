@@ -5,6 +5,7 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   margin: 1.25rem;
   position: relative;
+  width: 250px;
 `;
 
 export const InuptField = styled.input`
@@ -33,7 +34,7 @@ export const InputLabel = styled.label`
   /* 語法上除了提列上面的InputField以外，要注意語法 ~ & {...css} */
   /* 目前controlled的Input可以正常顯示，但uncontrol的Input在label shirnk的時候會有跳不上去的問題 */
   ${InuptField}[value=""] ~ & {
-    top: 0.5rem;
+    top: 0.25rem;
     font-size: 1rem;
   }
   ${InuptField}:focus ~ & {
