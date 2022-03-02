@@ -15,12 +15,12 @@ const Navbar = (props) => {
     }
   };
   return (
-    <>
+    <header>
       <NavbarWrapper variant={props.variant}>
         <OptionsWapper>{props.children}</OptionsWapper>
         <BurgerBtn onChange={burgerChange} checked={props.opened} />
       </NavbarWrapper>
-    </>
+    </header>
   );
 };
 Navbar.propTypes = {
