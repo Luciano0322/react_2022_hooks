@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import InputTxt from "../components/InputTxt";
 import useNativeForm from "../hooks/useNativeForm";
+import nativeFormReducer from "../reducers/nativeFormReducer";
+import { PWD_L4_CHANGE, USER_L4_CHANGE } from "../reducers/types";
 
 const NativeForm = () => {
   // 這裡用最基本的useState hook來呈現
@@ -19,11 +21,20 @@ const NativeForm = () => {
   // level 3 作自定義的form hook
   const [level3, setLevel3] = useNativeForm()
 
+  // level 4 useReducer hook
+  // 這裡要熟悉一下useReducer 的底層邏輯，他比較像useState + handleChange() 的綜合體
+  // 只是預先幫你做整合和規劃
+  const [level4, dispatch] = useReducer(nativeFormReducer, {
+    user_l4: "",
+    pwd_l4: "",
+  })
+
   const levelSend = e => {
     e.preventDefault();
     // console.log({nativeUser, nativePwd}); //level1
     // console.log(nativeForm) // level2
     // console.log(level3) // level3
+    // console.log(level4);
   }
 
   return (
@@ -93,6 +104,28 @@ const NativeForm = () => {
               type="password"
               value={level3.pwd_l3 || ''}
               onChange={setLevel3}
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>level 4</legend>
+          <div>
+            <label htmlFor="user_l4">用戶名(no css)</label>
+            <input 
+              id="user_l4"
+              name="user_l4"
+              value={level4.user_l4}
+              onChange={e => dispatch({ type: USER_L4_CHANGE, value: e.target.value })}
+            />
+          </div>
+          <div>
+            <label htmlFor="pwd_l4">密碼(no css)</label>
+            <input 
+              id="pwd_l4"
+              name="pwd_l4"
+              type="password"
+              value={level4.pwd_l4}
+              onChange={e => dispatch({ type: PWD_L4_CHANGE, value: e.target.value })}
             />
           </div>
         </fieldset>
