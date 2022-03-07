@@ -42,7 +42,7 @@ const NativeForm = () => {
       <form onSubmit={levelSend}>
         <h2>Native Form</h2>
         <fieldset>
-          <legend>level 1</legend>
+          <legend>level 1 一般的useState</legend>
           <div>
             <label htmlFor="native_user">用戶名(no css)</label>
             <input 
@@ -64,7 +64,7 @@ const NativeForm = () => {
           </div>
         </fieldset>
         <fieldset>
-          <legend>level 2</legend>
+          <legend>level 2 整合過後的useState</legend>
           <div>
             <label htmlFor="user">用戶名(no css)</label>
             <input 
@@ -86,7 +86,7 @@ const NativeForm = () => {
           </div>
         </fieldset>
         <fieldset>
-          <legend>level 3</legend>
+          <legend>level 3 custom hook</legend>
           <div>
             <label htmlFor="user_l3">用戶名(no css)</label>
             <input 
@@ -108,7 +108,7 @@ const NativeForm = () => {
           </div>
         </fieldset>
         <fieldset>
-          <legend>level 4</legend>
+          <legend>level 4 useReducer hook</legend>
           <div>
             <label htmlFor="user_l4">用戶名(no css)</label>
             <input 
