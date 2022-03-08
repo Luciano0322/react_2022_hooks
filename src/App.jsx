@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import FetchData from "./pages/FetchData";
 import Home from "./pages/Home";
+import ImperativeHandle from "./pages/ImperativeHandle";
 import LayoutEffect from "./pages/LayoutEffect";
 import NativeForm from "./pages/NativeForm";
 import RefExample from "./pages/RefExample";
@@ -15,6 +16,7 @@ function App() {
         <Link to={`/fetch_data`}>Fetch Data</Link>
         <Link to={`/ref_example`}>Ref Example</Link>
         <Link to={`/layoutEffect`}>Layout Effect</Link>
+        <Link to={`/imperative_handle`}>Imperative Handle</Link>
       </Navbar>
       <div style={{ paddingTop: '4.5rem' }}>
         <Routes>
@@ -23,6 +25,7 @@ function App() {
           <Route path="/fetch_data" element={<FetchData />}/>
           <Route path="/ref_example" element={<RefExample />}/>
           <Route path="/layoutEffect" element={<LayoutEffect />}/>
+          <Route path="/imperative_handle" element={<ImperativeHandle />}/>
         </Routes>
       </div>
     </Router>
