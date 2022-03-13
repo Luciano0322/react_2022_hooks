@@ -1,11 +1,14 @@
+# This project will focus on hook function implemented and a little use cases on styled-components
 
-### hooks function crash course
+## hooks function crash course
+### basic hooks
 - useState (basic difine && use)
 - useEffect (example with axios fetch data from api)
 - useReducer (state management, using way just like redux way)
 - useImperativeHandle (prop from child component)
 - useRef (manipulate dom element)
 - useLayoutEffect (before render)
+
 
 # Getting Started with Create React App
 
