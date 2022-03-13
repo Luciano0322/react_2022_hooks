@@ -1,3 +1,12 @@
+
+### hooks function crash course
+- useState (basic difine && use)
+- useEffect (example with axios fetch data from api)
+- useReducer (state management, using way just like redux way)
+- useImperativeHandle (prop from child component)
+- useRef (manipulate dom element)
+- useLayoutEffect (before render)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,6 +77,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-### hooks list
-- useState
