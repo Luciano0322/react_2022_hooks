@@ -13,6 +13,7 @@ const FetchData = () => {
   },[])
   // 這個為custom hook的做法
   const { data: custData, loading, error, refetch } = useFetch("https://v2.jokeapi.dev/joke/Any");
+  console.log(custData);
   return (
     <div>
       <h1>ex: useEffect hook</h1>

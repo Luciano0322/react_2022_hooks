@@ -6,6 +6,7 @@ import FetchData from "./pages/FetchData";
 import Home from "./pages/Home";
 import ImperativeHandle from "./pages/ImperativeHandle";
 import LayoutEffect from "./pages/LayoutEffect";
+import Memohook from "./pages/Memohook";
 import NativeForm from "./pages/NativeForm";
 import RefExample from "./pages/RefExample";
 
@@ -19,6 +20,7 @@ function App() {
         <Link to={`/layoutEffect`}>Layout Effect</Link>
         <Link to={`/imperative_handle`}>Imperative Handle</Link>
         <Link to={`/context_tutorial`}>Context Tutorial</Link>
+        <Link to={`/memo_hook`}>Memo Tutorial</Link>
       </Navbar>
       <div style={{ paddingTop: '4.5rem' }}>
         <Routes>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/layoutEffect" element={<LayoutEffect />}/>
           <Route path="/imperative_handle" element={<ImperativeHandle />}/>
           <Route path="/context_tutorial" element={<ContextTutorial />}/>
+          <Route path="/memo_hook" element={<Memohook />}/>
         </Routes>
       </div>
     </Router>
