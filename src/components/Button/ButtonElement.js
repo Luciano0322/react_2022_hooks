@@ -16,16 +16,16 @@ export const ButtonBase = styled.button`
   background-color: transparent;
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
-  color: ${(props) => (props.variant === "containted" ? "#fff" : props.color)};
+  color: ${(props) => (props.variant === "containted" ? "#FFF" : props.color)};
   border: ${(props) =>
-    props.variant === "outlined" ? `2px solid ${props.color}` : 0};
+    props.variant === "outlined" ? `2px solid ${props.color || '#CCC'}` : 0};
   background: ${(props) => {
     const variant = props.variant;
     switch (variant) {
       case "outlined":
         return "#fff";
       case "containted":
-        return props.color;
+        return props.color || '#CCC';
       default:
         return "transparent";
     }
