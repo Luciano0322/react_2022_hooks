@@ -12,6 +12,7 @@ const useArray = (defaultValue) => {
   }
 
   const update = (index, newElement) => {
+    // 這裡其實也可以直接用splice的方法從外部帶入，exp: remove function, 但我保留其不同作法以供參考，也可以練習兩種不同做法。
     setArray(prev => [
       ...prev.slice(0, index),
       newElement,
@@ -20,10 +21,8 @@ const useArray = (defaultValue) => {
   }
 
   const remove = (index) => {
-    setArray(prev => {
-      prev.splice(index, 1)
-      return [...prev];
-    })
+    array.splice(index, 1)
+    setArray([...array])
   }
 
   const clear = () => {

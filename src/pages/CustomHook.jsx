@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../components/Button";
+import useArray from "../hooks/useArray";
 import useDebounce from "../hooks/useDebounce";
 import useTimout from "../hooks/useTimeout";
 import useToggle from "../hooks/useToggle";
@@ -21,6 +22,9 @@ const CustomHook = () => {
   // useUpdateEffect
   const [count1, setCount1] = useState(10)
   useUpdateEffect(() => alert(count1), [count1])
+
+  // useArray
+  const { array, set: setUseArr, push, filter, update, remove, clear: clearArray  } = useArray(['A', 'B', 'C', 'D'])
 
   return (
     <div>
@@ -48,7 +52,17 @@ const CustomHook = () => {
         <p>{count1}</p>
         <Button p={`1rem`} onClick={() => setCount1(prev => prev + 1)}>++</Button>
       </div>
-      
+      <div>
+        <h1>useArray</h1>
+        <p>{array.join(', ')}</p>
+        <Button p={`1rem`} onClick={() => push("F")}>加一個F</Button>
+        <Button p={`1rem`} onClick={() => update(2, "Cat")}>修改第三個</Button>
+        <Button p={`1rem`} onClick={() => remove(1)}>刪除第二個</Button>
+        <Button p={`1rem`} onClick={() => filter(e => e !== 'F')}>去除所有的F</Button>
+        <Button p={`1rem`} onClick={() => setUseArr(['X', 'Y', 'Z'])}>設成X,Y,Z</Button>
+        <Button p={`1rem`} onClick={clearArray}>清空</Button>
+      </div>
+
     </div>
   )
 }
