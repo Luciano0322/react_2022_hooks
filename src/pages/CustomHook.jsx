@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "../components/Button";
 import useArray from "../hooks/useArray";
 import useDebounce from "../hooks/useDebounce";
+import usePages from "../hooks/usePages";
+import usePrevious from "../hooks/usePrevious";
 import useTimout from "../hooks/useTimeout";
 import useToggle from "../hooks/useToggle";
 import useUpdateEffect from "../hooks/useUpdateEffect";
@@ -26,6 +28,14 @@ const CustomHook = () => {
   // useArray
   const { array, set: setUseArr, push, filter, update, remove, clear: clearArray  } = useArray(['A', 'B', 'C', 'D'])
 
+  // usePrevious
+  const [count2, setCount2] = useState(0)
+  const previousCount2 = usePrevious(count2)
+
+  // usePages
+  const pages = [1,2,3,4,5,6,7,8,9,10,11,12];
+  const {pageData, totalPages} = usePages(pages)
+  
   return (
     <div>
       <div>
@@ -62,7 +72,11 @@ const CustomHook = () => {
         <Button p={`1rem`} onClick={() => setUseArr(['X', 'Y', 'Z'])}>設成X,Y,Z</Button>
         <Button p={`1rem`} onClick={clearArray}>清空</Button>
       </div>
-
+      <div>
+        <h1>usePrevious</h1>
+        <p>{`現值-${count2}，前值-${previousCount2} `}</p>
+        <Button p={`1rem`} onClick={() => setCount2(prev => prev + 1)}>++</Button>
+      </div>
     </div>
   )
 }

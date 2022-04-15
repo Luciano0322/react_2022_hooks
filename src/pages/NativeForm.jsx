@@ -19,7 +19,10 @@ const NativeForm = () => {
   const level2Change = e => setNativeForm({...nativeForm, [e.target.name]: e.target.value })
 
   // level 3 作自定義的form hook
-  const [level3, setLevel3] = useNativeForm()
+  const [level3, setLevel3] = useNativeForm({
+    user_l3: "aaa",
+    pwd_l3: "ooo"
+  })
 
   // level 4 useReducer hook
   // 這裡要熟悉一下useReducer 的底層邏輯，他比較像useState + handleChange() 的綜合體
@@ -92,7 +95,7 @@ const NativeForm = () => {
             <input 
               id="user_l3"
               name="user_l3"
-              value={level3.user_l3 || ''}
+              value={level3.user_l3}
               onChange={setLevel3}
             />
           </div>
@@ -102,7 +105,7 @@ const NativeForm = () => {
               id="pwd_l3"
               name="pwd_l3"
               type="password"
-              value={level3.pwd_l3 || ''}
+              value={level3.pwd_l3}
               onChange={setLevel3}
             />
           </div>
