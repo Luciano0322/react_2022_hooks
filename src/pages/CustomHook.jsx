@@ -4,6 +4,7 @@ import useArray from "../hooks/useArray";
 import useDebounce from "../hooks/useDebounce";
 import usePages from "../hooks/usePages";
 import usePrevious from "../hooks/usePrevious";
+import useStateWithHistory from "../hooks/useStateWithHistory";
 import useTimout from "../hooks/useTimeout";
 import useToggle from "../hooks/useToggle";
 import useUpdateEffect from "../hooks/useUpdateEffect";
@@ -33,9 +34,12 @@ const CustomHook = () => {
   const previousCount2 = usePrevious(count2)
 
   // usePages
-  const pages = [1,2,3,4,5,6,7,8,9,10,11,12];
-  const {pageData, totalPages} = usePages(pages)
-  
+  // const pages = [1,2,3,4,5,6,7,8,9,10,11,12];
+  // const {pageData, totalPages} = usePages(pages)
+
+  // useStateWithHistory
+  const [count3, setCount3, { history, pointer, back, forward, go }] = useStateWithHistory(1)
+
   return (
     <div>
       <div>
@@ -76,6 +80,17 @@ const CustomHook = () => {
         <h1>usePrevious</h1>
         <p>{`現值-${count2}，前值-${previousCount2} `}</p>
         <Button p={`1rem`} onClick={() => setCount2(prev => prev + 1)}>++</Button>
+      </div>
+      <div>
+        <h1>useStateWithHistory</h1>
+        <p>{count3}</p>
+        <p>{history.join(", ")}</p>
+        <div>Pointer - {pointer}</div>
+        <Button p={`1rem`} onClick={() => setCount3(currentCount => currentCount * 2)}>x2</Button>
+        <Button p={`1rem`} onClick={() => setCount3(currentCount => currentCount + 1)}>++</Button>
+        <Button p={`1rem`} onClick={back}>Back</Button>
+        <Button p={`1rem`} onClick={forward}>Forward</Button>
+        <Button p={`1rem`} onClick={() => go(2)}>go 2</Button>
       </div>
     </div>
   )
