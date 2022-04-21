@@ -5,6 +5,7 @@ import useDebounce from "../hooks/useDebounce";
 import usePages from "../hooks/usePages";
 import usePrevious from "../hooks/usePrevious";
 import useStateWithHistory from "../hooks/useStateWithHistory";
+import { useLocalStorage, useSessionStorage } from "../hooks/useStorage";
 import useTimout from "../hooks/useTimeout";
 import useToggle from "../hooks/useToggle";
 import useUpdateEffect from "../hooks/useUpdateEffect";
@@ -39,6 +40,11 @@ const CustomHook = () => {
 
   // useStateWithHistory
   const [count3, setCount3, { history, pointer, back, forward, go }] = useStateWithHistory(1)
+
+  // useStorage
+  const [name, setName, removeName] = useSessionStorage("name", "Luciano")
+  const [age, setAge, removeAge] = useLocalStorage("age", 31)
+
 
   return (
     <div>
@@ -91,6 +97,14 @@ const CustomHook = () => {
         <Button p={`1rem`} onClick={back}>Back</Button>
         <Button p={`1rem`} onClick={forward}>Forward</Button>
         <Button p={`1rem`} onClick={() => go(2)}>go 2</Button>
+      </div>
+      <div>
+        <h1>useStorage</h1>
+        <p>{name} - {age}</p>
+        <Button p={`1rem`} onClick={() => setName("John")}>set Name</Button>
+        <Button p={`1rem`} onClick={() => setAge(20)}>set Age</Button>
+        <Button p={`1rem`} onClick={removeName}>Remove Name</Button>
+        <Button p={`1rem`} onClick={removeAge}>Remove Age</Button>
       </div>
     </div>
   )
