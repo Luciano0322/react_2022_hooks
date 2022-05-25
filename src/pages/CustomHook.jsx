@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../components/Button";
 import useArray from "../hooks/useArray";
+import useAsync from "../hooks/useAsync";
 import useDebounce from "../hooks/useDebounce";
 import usePages from "../hooks/usePages";
 import usePrevious from "../hooks/usePrevious";
@@ -45,9 +46,18 @@ const CustomHook = () => {
   const [name, setName, removeName] = useSessionStorage("name", "Luciano")
   const [age, setAge, removeAge] = useLocalStorage("age", 31)
 
+  // useAsync
+  const { loading: asyncLoading, error: asyncError, value: asyncVal } = useAsync(() => {
+    return new Promise((resolve, reject) => {
+      const success = true
+      setTimeout(() => {
+        success ? resolve("hi") : reject("error")
+      }, 1000)
+    })
+  })
 
   return (
-    <div>
+    <div style={{display: 'grid', placeItems: 'center'}}>
       <div>
         <h1>useToggle</h1>
         <p>{toggle.toString()}</p>
@@ -105,6 +115,12 @@ const CustomHook = () => {
         <Button p={`1rem`} onClick={() => setAge(20)}>set Age</Button>
         <Button p={`1rem`} onClick={removeName}>Remove Name</Button>
         <Button p={`1rem`} onClick={removeAge}>Remove Age</Button>
+      </div>
+      <div>
+        <h1>useAsync</h1>
+        <h5>Loading - {asyncLoading.toString()}</h5>
+        <p>{asyncError}</p>
+        <p>{asyncVal}</p>
       </div>
     </div>
   )
